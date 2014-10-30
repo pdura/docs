@@ -6,6 +6,7 @@ var redirect = require("express-redirect");
 var prerender = require('prerender-node');
 var passport = require('passport');
 var markdocs = require('markdocs');
+var header = require('web-header');
 var express = require('express');
 var nconf = require('nconf');
 var https = require('https');
@@ -191,6 +192,7 @@ var defaultValues = function (req, res, next) {
   res.locals.account.callback     = default_callback.get(req) || 'http://YOUR_APP/callback';
 
   res.locals.base_url             = nconf.get('DOMAIN_URL_DOCS');
+  res.locals.webheader            = header({ base_url: 'https://auth0.com' });
   next();
 };
 
