@@ -45,7 +45,7 @@ Edit `App_Start\Startup.Auth.cs` in order to call the `UseAuth0Authentication` e
 
     	// Use a cookie to temporarily store information about a user logging in with a third party login provider
     	app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-		
+
 		// ...
 
 	    app.UseAuth0Authentication(
@@ -56,15 +56,15 @@ Edit `App_Start\Startup.Auth.cs` in order to call the `UseAuth0Authentication` e
 
 The nuget provides a simple controller (_Auth0AccountController_) to process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
 
-### 5. Triggering login manually or integrating the Auth0 widget
+### 5. Triggering login manually or integrating the Auth0Lock
 
-@@sdk2@@
+@@lockSDK@@
 
 ### 6. Accessing user information
 
 Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
-    public ActionResult Index() 
+    public ActionResult Index()
     {
     	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
     }

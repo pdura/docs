@@ -1,12 +1,12 @@
 # Auth0 and Java
 
-[Auth0](https://www.auth0.com) is a cloud service that provides a turn-key solution for authentication, authorization and Single Sign On. 
+[Auth0](https://www.auth0.com) is a cloud service that provides a turn-key solution for authentication, authorization and Single Sign On.
 
-You can use  [Auth0](https://www.auth0.com) to add username/password authentication, support for enterprise identity like Active Directory or SAML and also for social identities like Google, Facebook or Salesforce among others to your web, API and mobile native apps. 
+You can use  [Auth0](https://www.auth0.com) to add username/password authentication, support for enterprise identity like Active Directory or SAML and also for social identities like Google, Facebook or Salesforce among others to your web, API and mobile native apps.
 
 ## Servlet-based Application Tutorial
 
-This guide will walk you through adding authentication to an existing Java Web Application that is based on [Java Servlet Technology](http://www.oracle.com/technetwork/java/index-jsp-135475.html). 
+This guide will walk you through adding authentication to an existing Java Web Application that is based on [Java Servlet Technology](http://www.oracle.com/technetwork/java/index-jsp-135475.html).
 
 In case you are starting from scratch, you can create a Java Web Application by using the `maven-archetype-webapp`
 
@@ -129,9 +129,9 @@ In the `Auth0ServletCallback` the data to popuplate principal will be persisted 
 
 As configured previously, the user will be redirected to `/protected`. User-provided `HelloServlet`, which overrides `doGet` method, will be handling that case.
 
-### 4. (Optional) Widget
+### 4. (Optional) Auth0Lock
 
-@@sdk2@@
+@@lockSDK@@
 
 ### 5. (Optional) Customize your JSP login page
 
@@ -189,20 +189,23 @@ Next step is to add a Login Page (`/login.jsp`) with the custom widget of the pr
          }
       %>
 
-      var widget = new Auth0Widget({
-        domain:         '<%= application.getInitParameter("auth0.domain") %>',
-        clientID:       '<%= application.getInitParameter("auth0.client_id") %>',
-        callbackURL:    '<%= buildUrl(request, "/callback") %>',
-        // Add your custom state here
-        state:          'foo'
-      });
+      var lock = new Auth0Lock('<%= application.getInitParameter("auth0.client_id") %>', '<%= application.getInitParameter("auth0.domain") %>');
 
+      function signin () {
+        lock.show({
+          callbackURL: '<%= buildUrl(request, "/callback") %>',
+          authParams: {
+            // Add your custom state here
+            state: '${state}'
+          }
+        })
+      }
     </script>
     <% if ( request.getParameter("error") != null ) { %>
         <%-- TODO Escape and encode ${param.error} properly. It can be done using jstl c:out. --%>
         <span style="color: red;">${param.error}</span>
     <% } %>
-    <button onclick="widget.signin({state: '${state}'})">Login</button>
+    <button onclick="signin()">Login</button>
   </body>
 </html>
 ```
@@ -223,19 +226,19 @@ In order to handle the callback call from Auth0, you will need to have a Servlet
  * onReject: What should be done when the user is not authenticated.
  * loadTokens: You should override this method to provide a custom way of restoring both id and access tokens. By default, they are stored in the Session object but, for instance, they can be persisted in databases.
 
-Method signatures are as follows: 
+Method signatures are as follows:
 
 ```java
 protected void onSuccess(
-    ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens) 
+    ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens)
         throws IOException, ServletException {
 
 }
 
 protected void onReject(
-    ServletRequest req, ServletResponse response, FilterChain next) 
+    ServletRequest req, ServletResponse response, FilterChain next)
         throws IOException, ServletException {
-        
+
 }
 
 protected Tokens loadTokens(ServletRequest req, ServletResponse resp) {
@@ -255,7 +258,7 @@ Method signatures are:
 
 ```java
 protected void saveTokens(
-    HttpServletRequest req, HttpServletResponse resp, Tokens tokens) 
+    HttpServletRequest req, HttpServletResponse resp, Tokens tokens)
         throws ServletException, IOException {
 }
 

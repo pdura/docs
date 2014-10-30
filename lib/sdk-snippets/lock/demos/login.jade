@@ -1,0 +1,22 @@
+html
+  head
+  body
+    button(onclick='show()') Login
+    script(src=widget_url)
+    script
+      // define lock
+      var lock = new Auth0Lock('!{clientID}', '!{namespace}', {
+        assetsUrl:    '!{auth0_sdk_assets}'
+      });
+
+      // define show function to invoke lock.show
+      function show() {
+        lock.show({
+          callbackURL:  '!{callback || 'http://YOUR_APP/callback'}',
+          responsetType: '!{callbackOnHash ? "token" : "code"}',
+          focusInput: false
+        });
+      }
+
+      // invoke at load
+      show();

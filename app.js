@@ -31,7 +31,8 @@ nconf
     'PACKAGER_URL':      'http://localhost:3001',
     'DOMAIN_URL_DOCS':   'https://localhost:5050',
     'WIDGET_FALLBACK_CLIENTID': 'aCbTAJNi5HbsjPJtRpSP6BIoLPOrSj2C',
-    'LOGIN_WIDGET_URL':  'https://cdn.auth0.com/w2/auth0-widget-2.6.min.js',
+    'LEGACY_WIDGET_URL':  'https://cdn.auth0.com/w2/auth0-widget-5.2.min.js',
+    'LOGIN_WIDGET_URL':  'https://cdn.auth0.com/js/lock-6.2.min.js',
     'AUTH0JS_URL':       'https://cdn.auth0.com/w2/auth0-1.6.4.min.js',
     'AUTH0_ANGULAR_URL': 'http://cdn.auth0.com/w2/auth0-angular-1.1.js',
     'SENSITIVE_DATA_ENCRYPTION_KEY': '0123456789',
@@ -446,15 +447,32 @@ docsapp.addPreRender(function(req,res,next){
   next();
 });
 
+var lockGithub = require('./lib/lock-github');
+
+docsapp.addPreRender(function(req, res, next) {
+  function save(err) {
+    if (err) return next(err);
+    res.locals.lock_readme = lockGithub.cache['README.md'];
+    next();
+  }
+
+  if ('README.md' in lockGithub.cache) return save(null);
+  lockGithub('README.md', save);
+});
+
 docsapp.addPreRender(require('./lib/external/middleware'));
-docsapp.addPreRender(require('./lib/sdk/middleware'));
-docsapp.addPreRender(require('./lib/sdk2/middleware'));
-docsapp.addPreRender(require('./lib/sdk2/middleware-browser'));
+docsapp.addPreRender(require('./lib/sdk-snippets/lock/middleware-browser'));
+docsapp.addPreRender(require('./lib/sdk-snippets/login-widget/middleware'));
+docsapp.addPreRender(require('./lib/sdk-snippets/login-widget2/middleware'));
+docsapp.addPreRender(require('./lib/sdk-snippets/login-widget2/middleware-browser'));
+docsapp.addPreRender(require('./lib/sdk-snippets/lock/middleware'));
 docsapp.addPreRender(require('./lib/middlewares').configuration);
 docsapp.addExtension(require('./lib/extensions').lodash);
-require('./lib/sdk/demos-routes')(app);
-require('./lib/sdk2/demos-routes')(app);
-require('./lib/sdk2/snippets-routes')(app);
+require('./lib/sdk-snippets/lock/demos-routes')(app);
+require('./lib/sdk-snippets/lock/snippets-routes')(app);
+require('./lib/sdk-snippets/login-widget2/demos-routes')(app);
+require('./lib/sdk-snippets/login-widget2/snippets-routes')(app);
+require('./lib/sdk-snippets/login-widget/demos-routes')(app);
 require('./lib/packager')(app, overrideIfAuthenticated);
 require('./lib/sitemap')(app);
 
