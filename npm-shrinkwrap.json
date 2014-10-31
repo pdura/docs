@@ -652,6 +652,11 @@
         }
       }
     },
+    "web-header": {
+      "version": "0.2.0",
+      "from": "web-header@git://github.com/auth0/web-header",
+      "resolved": "git://github.com/auth0/web-header#738fa38500fccce5eac19deb468fa7208a5135c0"
+    },
     "winston": {
       "version": "0.6.2",
       "resolved": "https://registry.npmjs.org/winston/-/winston-0.6.2.tgz",
