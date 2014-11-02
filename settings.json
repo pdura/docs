@@ -129,6 +129,7 @@
           { "title": "Rules Repository", "url": "https://github.com/auth0/rules" },
           { "title": "Active Directory", "url": "/ad" },
           { "title": "Database Connections", "url": "/mysql-connection-tutorial" },
+          { "title": "Passwordless Connections", "url": "/passwordless" },
           { "title": "Protocols", "url":"/protocols"},
           { "title": "Sequence Diagrams", "url":"/sequence-diagrams"},
           { "title": "Refresh token", "url":"/refresh-token"},
