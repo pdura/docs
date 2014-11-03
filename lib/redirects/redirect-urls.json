@@ -77,4 +77,40 @@
 {
   "from": "/widget",
   "to": "/login-widget2"
+},
+{
+  "from": "/scenarios-keenio",
+  "to": "/scenarios/keenio"
+},
+{
+  "from": "/scenarios-mixpanel-fullcontact-salesforce",
+  "to": "/scenarios/mixpanel-fullcontact-salesforce"
+},
+{
+  "from": "/scenarios-mqtt",
+  "to": "/scenarios/mqtt"
+},
+{
+  "from": "/scenarios-parse",
+  "to": "/scenarios/parse"
+},
+{
+  "from": "/scenarios-rapleaf-salesforce",
+  "to": "/scenarios/rapleaf-salesforce"
+},
+{
+  "from": "/scenarios-segmentio",
+  "to": "/scenarios/segmentio"
+},
+{
+  "from": "/scenarios-splunk",
+  "to": "/scenarios/splunk"
+},
+{
+  "from": "/scenarios-tessel",
+  "to": "/scenarios/tessel"
+},
+{
+  "from": "/scenarios-unbounce",
+  "to": "/scenarios/unbounce"
 }]
