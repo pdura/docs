@@ -162,10 +162,6 @@ app.configure(function(){
   this.use(this.router);
 });
 
-app.get('/widget', function (req, res) {
-  res.redirect('/login-widget2');
-});
-
 app.get('/ticket/step', function (req, res) {
   if (!req.query.ticket) return res.send(404);
   connections.getCurrentStep(req.query.ticket, function (err, currentStep) {

@@ -29,37 +29,52 @@
 {
   "from": "/rubyapi-tutorial",
   "to" : "/server-apis/rails"
-}, {
+},
+{
   "from": "/awsapi-tutorial",
   "to": "/server-apis/aws"
-}, {
+},
+{
   "from": "/wams",
   "to": "/server-apis/azure-mobile-services"
-}, {
+},
+{
   "from": "/firebaseapi-tutorial",
   "to": "/server-apis/firebase"
-}, {
+},
+{
   "from": "/salesforcesandboxapi-tutorial",
   "to": "/server-apis/salesforce-sandbox"
-}, {
+},
+{
   "from": "/salesforceapi-tutorial",
   "to": "/server-apis/salesforce"
-}, {
+},
+{
   "from": "/sapapi-tutorial",
   "to": "/server-apis/sap-odata"
-}, {
+},
+{
   "from": "/rails-tutorial",
   "to": "/server-platforms/rails"
-}, {
+},
+{
   "from": "/python-tutorial",
   "to": "/server-platforms/python"
-}, {
+},
+{
   "from": "/php-tutorial",
   "to": "/server-platforms/php"
-},{
+},
+{
   "from": "/java-tutorial",
   "to" : "/server-platforms/java"
-},{
+},
+{
   "from": "/phonegap-tutorial",
   "to" : "/native-platforms/phonegap"
+},
+{
+  "from": "/widget",
+  "to": "/login-widget2"
 }]
