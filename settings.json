@@ -93,6 +93,7 @@
         "icon": "icon-cogs",
         "items": [
           { "title": "API", "url": "/api"},
+          { "title": "API v2 (beta)", "url": "https://login.auth0.com/docs/api/v2/"},
           { "title": "Authentication Endpoints", "url": "/auth-api"}
         ]
       },
