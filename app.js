@@ -31,6 +31,7 @@ nconf
     'DOMAIN_URL_SDK':    'login-dev.auth0.com:3000',
     'PACKAGER_URL':      'http://localhost:3001',
     'DOMAIN_URL_DOCS':   'https://localhost:5050',
+    'DOMAIN_URL_API2_EXPLORER': 'login0.myauth0.com',
     'WIDGET_FALLBACK_CLIENTID': 'aCbTAJNi5HbsjPJtRpSP6BIoLPOrSj2C',
     'LEGACY_WIDGET_URL':  'https://cdn.auth0.com/w2/auth0-widget-5.2.min.js',
     'LOGIN_WIDGET_URL':  'https://cdn.auth0.com/js/lock-6.2.min.js',
@@ -459,6 +460,7 @@ docsapp.addPreRender(function(req, res, next) {
 });
 
 docsapp.addPreRender(require('./lib/external/middleware'));
+docsapp.addPreRender(require('./lib/external/api2-explorer-middleware'));
 docsapp.addPreRender(require('./lib/sdk-snippets/login-widget/middleware'));
 docsapp.addPreRender(require('./lib/sdk-snippets/login-widget2/middleware'));
 docsapp.addPreRender(require('./lib/sdk-snippets/lock/middleware-browser'));
