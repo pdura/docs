@@ -98,6 +98,18 @@
         ]
       },
       {
+        "title": "The user is logged in. Now what?",
+        "icon": "icon-cogs",
+        "items": [
+          { "title": "How to call an external IdP (Facebook, Github, etc.) API",
+            "url": "/user-is-logged-in-now-what/calling-an-external-idp-api"},
+          { "title": "How to add new permissions and scopes to call IdP's APIs",
+            "url": "/user-is-logged-in-now-what/adding-scopes-for-an-external-idp"},
+          { "title": "How to add Single Sign On with other apps",
+            "url": "/sso/single-sign-on" }
+        ]
+      },
+      {
         "title": "Integrations",
         "icon": "icon-cogs",
         "disabled" : true,
