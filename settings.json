@@ -127,6 +127,7 @@
           { "title": "Web Apps vs Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
           { "title": "Rules", "url":"/rules"},
+          { "title": "Single Sign On (SSO)", "url":"/sso/single-sign-on"},
           { "title": "Rules Repository", "url": "https://github.com/auth0/rules" },
           { "title": "Active Directory", "url": "/ad" },
           { "title": "Database Connections", "url": "/mysql-connection-tutorial" },
