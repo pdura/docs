@@ -98,18 +98,6 @@
         ]
       },
       {
-        "title": "The user is logged in. Now what?",
-        "icon": "icon-cogs",
-        "items": [
-          { "title": "How to call an external IdP (Facebook, Github, etc.) API",
-            "url": "/user-is-logged-in-now-what/calling-an-external-idp-api"},
-          { "title": "How to add new permissions and scopes to call IdP's APIs",
-            "url": "/user-is-logged-in-now-what/adding-scopes-for-an-external-idp"},
-          { "title": "How to add Single Sign On with other apps",
-            "url": "/sso/single-sign-on" }
-        ]
-      },
-      {
         "title": "Integrations",
         "icon": "icon-cogs",
         "disabled" : true,
@@ -135,11 +123,12 @@
         "title": "Help Topics",
         "icon": "icon-question-sign",
         "items": [
-          { "title": "Normalized Profile", "url":"/user-profile"},
+          { "title": "User Profile", "url":"/user-profile"},
           { "title": "Web Apps vs Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
           { "title": "Rules", "url":"/rules"},
           { "title": "Single Sign On (SSO)", "url":"/sso/single-sign-on"},
+          { "title": "After Login", "url":"/what-to-do-once-the-user-is-logged-in/index"},
           { "title": "Rules Repository", "url": "https://github.com/auth0/rules" },
           { "title": "Active Directory", "url": "/ad" },
           { "title": "Database Connections", "url": "/mysql-connection-tutorial" },
