@@ -28,9 +28,9 @@
       "resolved": "git://github.com/auth0/server-apis#fd47d69d3e62001fd764c6f6202468ab0bea9003"
     },
     "auth0-server-platforms": {
-      "version": "0.1.8",
-      "from": "auth0-server-platforms@git://github.com/auth0/server-platforms#d754e1430b82baada18eeb6487631bb181e6c934",
-      "resolved": "git://github.com/auth0/server-platforms#d754e1430b82baada18eeb6487631bb181e6c934"
+      "version": "0.1.10",
+      "from": "auth0-server-platforms@git://github.com/auth0/server-platforms#cc200460cafb5f528df6f8591ee30dc923462f7b",
+      "resolved": "git://github.com/auth0/server-platforms#cc200460cafb5f528df6f8591ee30dc923462f7b"
     },
     "connect": {
       "version": "2.8.8",
@@ -653,9 +653,9 @@
       }
     },
     "web-header": {
-      "version": "0.2.0",
-      "from": "web-header@git://github.com/auth0/web-header",
-      "resolved": "git://github.com/auth0/web-header#738fa38500fccce5eac19deb468fa7208a5135c0"
+      "version": "0.3.0",
+      "from": "web-header@git://github.com/auth0/web-header#90f5038512f606b7bfaf262fd4ca9e8a63771550",
+      "resolved": "git://github.com/auth0/web-header#90f5038512f606b7bfaf262fd4ca9e8a63771550"
     },
     "winston": {
       "version": "0.6.2",
