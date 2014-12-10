@@ -127,7 +127,9 @@ app.configure(function(){
     this.use(prerender);
   };
 
-  this.use('/test', require('./lib/test-ping'));
+  this.use('/test', function (req, res) {
+    res.send(200);
+  });
 
   this.use(express.logger('dev'));
 
