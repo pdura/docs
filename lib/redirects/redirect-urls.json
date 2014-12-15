@@ -113,4 +113,8 @@
 {
   "from": "/scenarios-unbounce",
   "to": "/scenarios/unbounce"
+},
+{
+  "from": "/updating-appliance",
+  "to": "/appliance/update"
 }]
