@@ -117,4 +117,11 @@
 {
   "from": "/updating-appliance",
   "to": "/appliance/update"
+},
+{
+  "from": "/adldap-auth",
+  "to": "/connector/install"
+}, {
+  "from": "/adldap-x",
+  "to": "/connector/install-other-platforms"
 }]
