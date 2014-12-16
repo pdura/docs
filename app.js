@@ -13,6 +13,7 @@ var https = require('https');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
+
 var default_callback = require('./lib/default_callback');
 
 var app = redirect(express());
@@ -45,6 +46,8 @@ nconf
     'PRERENDER_ENABLED': false
   });
 
+// after configuration so values are available
+var middlewares = require('./lib/middlewares');
 
 if (nconf.get('db')) {
   console.log('db is ' + nconf.get('db'));
@@ -133,12 +136,7 @@ app.configure(function(){
 
   this.use(express.logger('dev'));
 
-  this.use(function (req, res, next) {
-    res.set({
-      'Access-Control-Allow-Origin': (process.env.NODE_ENV === 'production' ? 'https' : 'http') + '://' + nconf.get('DOMAIN_URL_APP')
-    });
-    next();
-  });
+  this.use(middlewares.cors);
 
   this.use(express.cookieParser());
 
@@ -467,7 +465,7 @@ docsapp.addPreRender(require('./lib/sdk-snippets/login-widget/middleware'));
 docsapp.addPreRender(require('./lib/sdk-snippets/login-widget2/middleware'));
 docsapp.addPreRender(require('./lib/sdk-snippets/lock/middleware-browser'));
 docsapp.addPreRender(require('./lib/sdk-snippets/lock/middleware'));
-docsapp.addPreRender(require('./lib/middlewares').configuration);
+docsapp.addPreRender(middlewares.configuration);
 docsapp.addExtension(require('./lib/extensions').lodash);
 require('./lib/sdk-snippets/lock/demos-routes')(app);
 require('./lib/sdk-snippets/lock/snippets-routes')(app);
