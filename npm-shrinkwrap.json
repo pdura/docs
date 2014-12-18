@@ -251,8 +251,8 @@
       }
     },
     "markdocs": {
-      "version": "0.6.0",
-      "resolved": "https://registry.npmjs.org/markdocs/-/markdocs-0.6.0.tgz",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/markdocs/-/markdocs-1.0.0.tgz",
       "dependencies": {
         "commander": {
           "version": "1.0.5",
@@ -674,8 +674,8 @@
     },
     "web-header": {
       "version": "0.3.0",
-      "from": "web-header@git://github.com/auth0/web-header#90f5038512f606b7bfaf262fd4ca9e8a63771550",
-      "resolved": "git://github.com/auth0/web-header#90f5038512f606b7bfaf262fd4ca9e8a63771550"
+      "from": "web-header@git://github.com/auth0/web-header#0238b5e2f8d70fc230e0161c35b36e9e08224be7",
+      "resolved": "git://github.com/auth0/web-header#0238b5e2f8d70fc230e0161c35b36e9e08224be7"
     },
     "winston": {
       "version": "0.6.2",
