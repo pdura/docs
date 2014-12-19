@@ -131,6 +131,10 @@ app.configure(function(){
     res.send(200);
   });
 
+  this.use(nconf.get('BASE_URL') + '/test', function (req, res) {
+    res.send(200);
+  });
+
   this.use(function (req, res, next) {
     if (!nconf.get('BASE_URL') || req.url === '/') return next();
     req.url = req.url.replace(/\/$/,'');
