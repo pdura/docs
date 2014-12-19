@@ -177,7 +177,7 @@ app.get('/ticket/step', function (req, res) {
 
 app.get(nconf.get('BASE_URL') + '/switch', function (req, res) {
   req.session.current_tenant = req.query.tenant;
-  res.redirect('/');
+  res.redirect(nconf.get('BASE_URL') || '/');
 });
 
 var defaultValues = function (req, res, next) {
