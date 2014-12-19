@@ -6,7 +6,7 @@
         "items": [
           {
             "title": "Home",
-            "url": "/"
+            "url": "/docs"
           }
         ]
       }
@@ -14,7 +14,7 @@
     "footer": [
       {
         "title": "Home",
-        "url": "/"
+        "url": "/docs"
       }
     ]
   }

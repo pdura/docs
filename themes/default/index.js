@@ -15,11 +15,14 @@ Theme.prototype._preRender = function(request, response, next) {
   response.locals.site.menus = settings['menus'] || {};
   response.locals.title = title;
   response.locals.env = {
+    BASE_URL:             nconf.get('BASE_URL'),
     AUTH0_DOMAIN:         nconf.get('AUTH0_DOMAIN'),
     AUTH0_CLIENT_ID:      nconf.get('AUTH0_CLIENT_ID'),
     DOMAIN_URL_SERVER:    nconf.get('DOMAIN_URL_SERVER')
   };
-  
+
+  console.log(response.locals);
+
   next();
 };
 

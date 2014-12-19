@@ -43,7 +43,8 @@ nconf
     'PUBLIC_ALLOWED_TUTORIALS': '/adldap-auth?,/adldap-x?,/adfs?',
     'AUTH0_TENANT': 'auth0-dev',
     'AUTH0_CLIENT_ID':   'aCbTAJNi5HbsjPJtRpSP6BIoLPOrSj2C',
-    'PRERENDER_ENABLED': false
+    'PRERENDER_ENABLED': false,
+    'BASE_URL': ''
   });
 
 // after configuration so values are available
@@ -51,10 +52,6 @@ var middlewares = require('./lib/middlewares');
 
 if (nconf.get('db')) {
   console.log('db is ' + nconf.get('db'));
-}
-
-if (nconf.get('NEWRELIC_KEY')) {
-  require('newrelic');
 }
 
 if (!nconf.get('LOGIN_WIDGET_URL')) {
@@ -134,6 +131,12 @@ app.configure(function(){
     res.send(200);
   });
 
+  this.use(function (req, res, next) {
+    if (!nconf.get('BASE_URL') || req.url === '/') return next();
+    req.url = req.url.replace(/\/$/,'');
+    next();
+  });
+
   this.use(express.logger('dev'));
 
   this.use(middlewares.cors);
@@ -189,6 +192,8 @@ var defaultValues = function (req, res, next) {
   res.locals.account.callback     = default_callback.get(req) || 'http://YOUR_APP/callback';
 
   res.locals.base_url             = nconf.get('DOMAIN_URL_DOCS');
+
+  // var escape = nconf.get('BASE_URL').replace(/\/([^\/]*)/ig, '/..');
   res.locals.webheader            = header({ base_url: 'https://auth0.com' });
   next();
 };
@@ -380,10 +385,10 @@ require('./lib/redirects')(app);
 var quickstartRoutes = require('./lib/quickstart-routes');
 
 quickstartRoutes.forEach(function(route) {
-  app.get('/quickstart' + route, alias('/'));
+  app.get(nconf.get('BASE_URL') + '/quickstart' + route, alias(nconf.get('BASE_URL') || '/'));
 });
 
-app.get('/quickstart', alias('/'));
+app.get(nconf.get('BASE_URL') + '/quickstart', alias(nconf.get('BASE_URL') || '/'));
 
 function alias(route) {
   return function(req, res, next) {
@@ -399,7 +404,7 @@ includes.init(path.join(__dirname, '/docs/includes'));
  * Create and boot DocsApp as `Markdocs` app
  */
 
-var docsapp = new markdocs.App(__dirname, '', app);
+var docsapp = new markdocs.App(__dirname, nconf.get('BASE_URL') || '', app);
 docsapp.addPreRender(defaultValues);
 docsapp.addPreRender(includes.add);
 docsapp.addPreRender(overrideIfAuthenticated);
