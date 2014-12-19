@@ -125,7 +125,7 @@ app.configure(function(){
     prerender.crawlerUserAgents.push('Slackbot-LinkExpanding');
     // add prerender middleware
     this.use(prerender);
-  };
+  }
 
   this.use('/test', function (req, res) {
     res.send(200);
