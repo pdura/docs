@@ -72,7 +72,7 @@ html(lang="en")
               each tenant in user.tenants
                 if (user.tenant !== tenant)
                   li(role='presentation')
-                    a(role='menuitem', tabindex='-1', href='/switch?tenant=#{tenant}') #{tenant}
+                    a(role='menuitem', tabindex='-1', href=env.BASE_URL + '/switch?tenant=#{tenant}') #{tenant}
         else
           .navbar-header
             small.navbar-text Documentation: API Reference & Help topics
