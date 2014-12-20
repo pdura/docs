@@ -223,13 +223,14 @@ div.package span.smaller {
   border-radius: 0 0 5px 5px;
 }
 .page-docs .edit-fiddle {
-  color: #08c;
+  background: url("https://cdn.auth0.com/img/codepen-Black-Large.png") no-repeat scroll;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  height: 35px;
+  width: 106px;
+  background-size: cover;
   border: none;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  padding-left: 35px;
-  background: url("/img/logo-fiddle.png") 5% 40% no-repeat;
-  margin-right: 15px;
-  font-size: 13px;
 }
 .page-docs .edit-fiddle:hover {
   color: #005580;
