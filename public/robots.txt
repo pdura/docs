@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://docs.auth0.com/sitemap.xml
+Sitemap: https://auth0.com/docs/sitemap.xml
