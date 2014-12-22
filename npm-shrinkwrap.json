@@ -28,9 +28,9 @@
       "resolved": "git://github.com/auth0/server-apis#7eb6256fd2f9544a58a4f9dca9f23510dc032554"
     },
     "auth0-server-platforms": {
-      "version": "0.1.10",
-      "from": "auth0-server-platforms@git://github.com/auth0/server-platforms#cc200460cafb5f528df6f8591ee30dc923462f7b",
-      "resolved": "git://github.com/auth0/server-platforms#cc200460cafb5f528df6f8591ee30dc923462f7b"
+      "version": "0.1.11",
+      "from": "auth0-server-platforms@git://github.com/auth0/server-platforms#e4408a39b8a2b9aa1d88e650ade7c2678a0f0171",
+      "resolved": "git://github.com/auth0/server-platforms#e4408a39b8a2b9aa1d88e650ade7c2678a0f0171"
     },
     "connect": {
       "version": "2.8.8",
@@ -267,44 +267,6 @@
         "less": {
           "version": "1.3.1",
           "resolved": "https://registry.npmjs.org/less/-/less-1.3.1.tgz"
-        },
-        "lsr": {
-          "version": "1.0.0",
-          "resolved": "https://registry.npmjs.org/lsr/-/lsr-1.0.0.tgz",
-          "dependencies": {
-            "barrage": {
-              "version": "0.0.4",
-              "resolved": "https://registry.npmjs.org/barrage/-/barrage-0.0.4.tgz",
-              "dependencies": {
-                "readable-stream": {
-                  "version": "1.0.27-1",
-                  "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.27-1.tgz",
-                  "dependencies": {
-                    "core-util-is": {
-                      "version": "1.0.1",
-                      "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.1.tgz"
-                    },
-                    "inherits": {
-                      "version": "2.0.1",
-                      "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
-                    },
-                    "isarray": {
-                      "version": "0.0.1",
-                      "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz"
-                    },
-                    "string_decoder": {
-                      "version": "0.10.25-1",
-                      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.25-1.tgz"
-                    }
-                  }
-                }
-              }
-            },
-            "promise": {
-              "version": "3.2.0",
-              "resolved": "https://registry.npmjs.org/promise/-/promise-3.2.0.tgz"
-            }
-          }
         },
         "mkdirp": {
           "version": "0.3.4",
@@ -673,9 +635,9 @@
       }
     },
     "web-header": {
-      "version": "0.3.0",
-      "from": "web-header@git://github.com/auth0/web-header#0238b5e2f8d70fc230e0161c35b36e9e08224be7",
-      "resolved": "git://github.com/auth0/web-header#0238b5e2f8d70fc230e0161c35b36e9e08224be7"
+      "version": "0.4.5",
+      "from": "web-header@git://github.com/auth0/web-header#483d11aea74d1e045fd08b7cf827c16f0fead7da",
+      "resolved": "git://github.com/auth0/web-header#483d11aea74d1e045fd08b7cf827c16f0fead7da"
     },
     "winston": {
       "version": "0.6.2",
