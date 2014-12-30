@@ -371,7 +371,7 @@ var quickstartCollections = function (req, res, next) {
   res.locals.quickstart.serverPlatforms = collections.serverPlatforms;
   res.locals.quickstart.serverApis = collections.serverApis;
   next();
-}
+};
 
 /**
  * Manage redirect 301 for deprecated links
@@ -398,7 +398,7 @@ function alias(route) {
   return function(req, res, next) {
     req.url = route;
     next();
-  }
+  };
 }
 
 var includes = require('./lib/includes/includes');
