@@ -80,7 +80,7 @@ html(lang="en")
 
         window.signup = function() {
           if (window.analytics) {
-            window.analytics.track('open:signup', getBasicInfo());
+            window.analytics.track('click:signup', getBasicInfo());
           }
           widget.hide(function() {
             widget.showSignup(options);
