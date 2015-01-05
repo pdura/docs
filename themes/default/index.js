@@ -23,8 +23,6 @@ Theme.prototype._preRender = function(request, response, next) {
     SEGMENT_KEY:          nconf.get('SEGMENT_KEY')
   };
 
-  console.log(response.locals);
-
   next();
 };
 
