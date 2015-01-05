@@ -19,10 +19,9 @@ Theme.prototype._preRender = function(request, response, next) {
     AUTH0_DOMAIN:         nconf.get('AUTH0_DOMAIN'),
     AUTH0_CLIENT_ID:      nconf.get('AUTH0_CLIENT_ID'),
     COOKIE_SCOPE:         nconf.get('COOKIE_SCOPE'),
-    DOMAIN_URL_SERVER:    nconf.get('DOMAIN_URL_SERVER')
+    DOMAIN_URL_SERVER:    nconf.get('DOMAIN_URL_SERVER'),
+    SEGMENT_KEY:          nconf.get('SEGMENT_KEY')
   };
-
-  console.log(response.locals);
 
   next();
 };
