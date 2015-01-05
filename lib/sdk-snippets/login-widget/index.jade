@@ -1,13 +1,13 @@
 p There are different ways of integrating Auth0 in your site. Below, some of them with a preview and a code snippet to copy paste.
 
 if account.loggedIn && account.clients && account.clients.length > 0 && !embedded
-  div 
+  div
     label Select one of your applications:
     select#client-chooser
       each client in account.clients
         option(value="#{client.clientID}") #{client.name}
 
-div 
+div
   label Select the widget mode:
   select#widget-chooser
     option(value="login") Login Widget - Modal
@@ -34,10 +34,10 @@ p This is how it will look on a browser...
 
 mixin fiddletize(snippet)
   div
-    | Want to play around with this snippet?   
-    form(action='http://jsfiddle.net/api/post/library/pure/', method='post', target="_blank", style="display: inline;")
-      input(type="hidden", name="html", value=snippet)
-      input.edit-fiddle(type="submit", value="Edit in JsFiddle")
+    | Want to play around with this snippet?
+    form(action="https://codepen.io/pen/define", method='post', target="_blank", style="display: inline;")
+      input(type="hidden", name="data", value='{"html":#{JSON.stringify(snippet)}}')
+      input.edit-fiddle(type="submit", value="")
 
 div#widget-login.widget-tut(style="display:none")
   .snippet-header Copy this HTML/JS code on your website...
@@ -71,14 +71,14 @@ div#widget-logincss.widget-tut(style="display:none")
   mixin fiddletize(include_snippet('logincss'))
 
 
-p For more information about the login widget check the documentation 
+p For more information about the login widget check the documentation
   a(href="/login-widget") here
   | .
 
 blockquote
-  p Building a JavaScript / Single Page Application? Consider adding 
+  p Building a JavaScript / Single Page Application? Consider adding
     code response_type=token
-    |  parameter to the script url or the login link. This is a hint for Auth0 to send the response back as a redirect to your site passing the tokens after the hash sign 
+    |  parameter to the script url or the login link. This is a hint for Auth0 to send the response back as a redirect to your site passing the tokens after the hash sign
     code https://yoursite#access_token=...&id_token=...
 
 script
