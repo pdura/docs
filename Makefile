@@ -11,4 +11,12 @@ test: node_modules
 node_modules:
 	@npm i
 
+test-shrinkwrap-status:
+	@./node_modules/.bin/npm-shrinkwrap
+	@git status | grep npm-shrinkwrap.json ; test "$$?" -eq 1
+	@echo shrinkwrap is okay
+
+test-sec-deps:
+	@./node_modules/.bin/nsp audit-shrinkwrap
+
 .PHONY: test
