@@ -1,15 +1,43 @@
-# Auth0 Docs
+Node version: 0.10.30
+NPM version: 1.4.21
 
-<img src="https://i.cloudup.com/luP-8olPxf.png" />
+## Development
 
-To run:
+Vagrant install production dependencies but not dev dependencies. Use this:
 
-	node app.js
+```
+nave use 0.10.30
+npm i
+```
 
-## Images
+## Installing or Updating dependencies
 
-All images should be placed in the cdn before merging.
+**Do not update npm-shrinkwrap.json by hand**
 
-## Licence
+Use this procedure:
+```
 
-MIT 2013 - AUTH0 INC
+npm i foo@~1.2.3 --save
+npm run shrinkwrap
+```
+```
+make test
+```
+
+If you want verbose logs use:
+
+```
+make test TEST_DEBUG_LEVEL=debug
+```
+
+## Testing the shrinkwrap status
+
+```
+make test-shrinkwrap-status
+```
+
+## Testing dependencies (node-security)
+
+```
+make test-sec-deps
+```
