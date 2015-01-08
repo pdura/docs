@@ -126,6 +126,7 @@
           { "title": "User Profile", "url":"/user-profile"},
           { "title": "Web Apps vs Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
+          { "title": "Connector", "url":"/connector"},
           { "title": "Rules", "url":"/rules"},
           { "title": "Single Sign On (SSO)", "url":"/sso/single-sign-on"},
           { "title": "After Login", "url":"/what-to-do-once-the-user-is-logged-in/index"},
