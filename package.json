@@ -27,8 +27,6 @@
     "passport": "~0.1.12",
     "prerender-node": "^1.0.6",
     "request": "^2.51.0",
-    "watch": "^0.13.0",
-    "watchr": "^2.4.12",
     "web-header": "git://github.com/auth0/web-header#0.3.0",
     "winston": "~0.6.2",
     "winston-email": "0.0.6",
