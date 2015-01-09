@@ -123,6 +123,7 @@
         "title": "Help Topics",
         "icon": "icon-question-sign",
         "items": [
+          { "title": "Real life scenarios", "url":"/scenarios"},
           { "title": "User Profile", "url":"/user-profile"},
           { "title": "Web Apps vs Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
