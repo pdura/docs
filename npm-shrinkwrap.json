@@ -1539,9 +1539,9 @@
       }
     },
     "web-header": {
-      "version": "0.4.5",
-      "from": "web-header@git://github.com/auth0/web-header#483d11aea74d1e045fd08b7cf827c16f0fead7da",
-      "resolved": "git://github.com/auth0/web-header#483d11aea74d1e045fd08b7cf827c16f0fead7da"
+      "version": "0.4.7",
+      "from": "web-header@git://github.com/auth0/web-header#59525c7e6f30350ac5e9b432e4e4ecd09295b85f",
+      "resolved": "git://github.com/auth0/web-header#59525c7e6f30350ac5e9b432e4e4ecd09295b85f"
     },
     "winston": {
       "version": "0.6.2",
