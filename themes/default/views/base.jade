@@ -90,6 +90,16 @@ html(lang="en")
 
   body.page-docs(data-swiftype-index="false")
     header.site-header!= webheader
+    script.
+      if (null != window.widget) {
+        window.widget.getClient().getSSOData(false, function (err, data) {
+          if (!data || !data.sso) return;
+          $('header.site-header .login')
+            .attr('href', 'https://manage.auth0.com')
+            .html('Open Dashboard');
+        });
+      }
+
 
     .container
       nav.navbar.navbar-default.sub-navbar
