@@ -558,14 +558,18 @@ div.package span.smaller {
       font-weight: bold
 
   form#search
+    .form-control 
+      height: 32px;
     button, input
-      border: 1px solid transparent;
+      border: 0;
+      margin-top: 1px;
+      font-weight: normal
     button
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
     input
-      border-top-right-radius: 20px;
-      border-bottom-right-radius: 20px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
 
     .btn.btn-default:hover, a.btn.btn-default:hover
       background: #fff;
