@@ -1,3 +1,9 @@
+var cluster = require('cluster');
+
+if (cluster.isMaster) {
+  return require('./master');
+}
+
 /**
  * Module dependencies.
  */
@@ -103,21 +109,19 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-//force https
-app.configure('production', function(){
-
-  this.use(function(req, res, next){
-    if (nconf.get('dontForceHttps') || req.originalUrl === '/test') return next();
-
-    if(req.headers['x-forwarded-proto'] !== 'https')
-      return res.redirect(nconf.get('DOMAIN_URL_DOCS') + req.url);
-
-    next();
-  });
-});
-
-app.configure(function(){
+(function(){
   this.set("view engine", "jade");
+
+  if (nconf.get('NODE_ENV') === 'production') {
+    this.use(function(req, res, next){
+      if (nconf.get('dontForceHttps') || req.originalUrl === '/test') return next();
+
+      if(req.headers['x-forwarded-proto'] !== 'https')
+        return res.redirect(nconf.get('DOMAIN_URL_DOCS') + req.url);
+
+      next();
+    });
+  }
 
   if (nconf.get('PRERENDER_ENABLED')) {
     // Add swiftype UserAgent bot
@@ -161,14 +165,15 @@ app.configure(function(){
 
   this.use(express.favicon());
   this.use(express.logger('dev'));
-  this.use(express.bodyParser());
-  this.use(express.methodOverride());
+  this.use(express.json());
+  this.use(express.urlencoded());
+  this.use(require('method-override'));
   this.use(passport.initialize());
   this.use(passport.session());
   this.use(require('./lib/set_current_tenant'));
   this.use(require('./lib/set_user_is_owner'));
   this.use(this.router);
-});
+}).call(app);
 
 app.get('/ticket/step', function (req, res) {
   if (!req.query.ticket) return res.send(404);
@@ -512,6 +517,15 @@ if (!module.parent) {
   var port = nconf.get('PORT') || 5050;
   server.listen(port, function () {
     console.log('Server listening on https://localhost:'  + port);
+  });
+
+  var enableDestroy = require('server-destroy');
+  enableDestroy(server);
+
+  process.on('SIGTERM', function () {
+    server.destroy(function () {
+      process.exit(0);
+    });
   });
 } else {
   module.exports = docsapp;
