@@ -495,38 +495,41 @@ require('./lib/sitemap')(app);
  * with it
  */
 
-if (!module.parent) {
-  var server;
-  if (process.env.NODE_ENV === 'production') {
-    server = http.createServer(app);
-  } else {
-    var options = {
-      key:  fs.readFileSync('./localhost.key'),
-      cert: fs.readFileSync('./localhost.pem')
-    };
+var server;
 
-    server = https.createServer(options, app)
-                  .on('error', function (err) {
-                    if(err.errno === 'EADDRINUSE'){
-                      console.log('error when running http server on port ', port, '\n', err.message);
-                      process.exit(1);
-                    }
-                  });
-  }
-
-  var port = nconf.get('PORT') || 5050;
-  server.listen(port, function () {
-    console.log('Server listening on https://localhost:'  + port);
-  });
-
-  var enableDestroy = require('server-destroy');
-  enableDestroy(server);
-
-  process.on('SIGTERM', function () {
-    server.destroy(function () {
-      process.exit(0);
-    });
-  });
+if (~['production', 'test'].indexOf(process.env.NODE_ENV)) {
+  server = http.createServer(app);
 } else {
-  module.exports = docsapp;
+  var options = {
+    key:  fs.readFileSync('./localhost.key'),
+    cert: fs.readFileSync('./localhost.pem')
+  };
+
+  server = https.createServer(options, app)
+                .on('error', function (err) {
+                  if(err.errno === 'EADDRINUSE'){
+                    console.log('error when running http server on port ', port, '\n', err.message);
+                    process.exit(1);
+                  }
+                });
+}
+
+var port = nconf.get('PORT') || 5050;
+server.listen(port, function () {
+  console.log('Server listening on https://localhost:'  + port);
+});
+
+var enableDestroy = require('server-destroy');
+enableDestroy(server);
+
+process.on('SIGTERM', function () {
+  server.destroy(function () {
+    process.exit(0);
+  });
+});
+
+if (module.parent) {
+  module.exports.stop = function (cb) {
+    server.destroy(cb);
+  };
 }

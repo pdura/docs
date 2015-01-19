@@ -2,25 +2,26 @@
  * Module dependencies.
  */
 
-var request = require('supertest');
 var docsapp = require('../app');
 var nconf = require('nconf');
+var request = require('request');
+var assert = require('assert');
 
 describe('Application', function() {
+  after(function (done) {
+    docsapp.stop(done);
+  });
+
   describe('GET /test', function(){
     it('should respond OK with json', function(done){
-      request(docsapp._app)
-        .get('/test')
-        .expect(200, done);
+
+      console.log(nconf.get('BASE_URL'));
+
+      request.get('http://localhost:' + nconf.get('PORT') + '/test', function (err, resp, body) {
+        assert.equal(resp.statusCode, 200);
+        done();
+      });
     });
   });
 
-  describe('GET /salesforceapi-tutorial', function(){
-    it('should respond REDIRECT with Location', function(done){
-      request(docsapp._app)
-        .get(nconf.get('BASE_URL') + '/salesforceapi-tutorial')
-  		.expect('Location', nconf.get('BASE_URL') + '/server-apis/salesforce')	
-        .expect(301, done);
-    });
-  });
 });
