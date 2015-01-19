@@ -1,6 +1,6 @@
 var cluster = require('cluster');
 
-if (cluster.isMaster) {
+if (cluster.isMaster && !module.parent) {
   return require('./master');
 }
 
