@@ -1538,6 +1538,10 @@
         }
       }
     },
+    "server-destroy": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/server-destroy/-/server-destroy-1.0.0.tgz"
+    },
     "web-header": {
       "version": "0.4.7",
       "from": "web-header@git://github.com/auth0/web-header#59525c7e6f30350ac5e9b432e4e4ecd09295b85f",
