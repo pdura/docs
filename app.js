@@ -167,7 +167,12 @@ passport.deserializeUser(function(id, done) {
   this.use(express.logger('dev'));
   this.use(express.json());
   this.use(express.urlencoded());
-  this.use(require('method-override'));
+
+  // warning this cause an Internal Server Error
+  // this.use(require('method-override'));
+  this.use(express.methodOverride());
+  ////////////////////////////////////////
+
   this.use(passport.initialize());
   this.use(passport.session());
   this.use(require('./lib/set_current_tenant'));
