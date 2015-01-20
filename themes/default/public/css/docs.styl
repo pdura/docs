@@ -330,6 +330,21 @@ div.package span.smaller {
     font-size: 13px;
     line-height: 20px;
     margin-bottom: 20px;
+    word-wrap: normal;
+    
+    code
+      white-space: pre;
+    
+    &::-webkit-scrollbar
+      width: 12px;
+     
+    &::-webkit-scrollbar-track
+      background: black;
+      background: rgba(0,0,0, 0.2);
+    
+    &::-webkit-scrollbar-thumb
+      background: white;
+      background: rgba(255,255,255, 0.5);
 
   .sidebar-docs
     ul
