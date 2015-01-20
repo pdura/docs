@@ -81,7 +81,7 @@
         "title": "Libraries",
         "icon": "icon-book",
         "items": [
-          { "title": "Auth0.js", "url": "https://github.com/auth0/auth0.js" },
+          { "title": "Auth0.js", "url": "/auth0js" },
           { "title": "Lock", "url": "/lock" },
           { "title": "Browser", "url": "/quickstart/spa"},
           { "title": "Mobile & Native", "url": "/quickstart/native-mobile" },
