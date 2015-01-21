@@ -503,6 +503,8 @@ div.package span.smaller {
 }
 .page-docs section.content img {
   max-width: 100%;
+  display: block;
+  margin: auto;
 }
 .page-docs .getting-started-logos {
   margin-bottom: 30px;

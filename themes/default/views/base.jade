@@ -176,6 +176,10 @@ html(lang="en")
               li
                 a(href=env.BASE_URL || "/") Documentation
               li &raquo;
+              - if (url !== '/connector' && url.indexOf('/connector') !== -1)
+                  li
+                    a(href=env.BASE_URL + '/connector') Connector
+                  li &raquo;
               li=title
 
           section.content(data-swiftype-index="true")
