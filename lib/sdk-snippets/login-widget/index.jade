@@ -71,15 +71,16 @@ div#widget-logincss.widget-tut(style="display:none")
   mixin fiddletize(include_snippet('logincss'))
 
 
-p For more information about the login widget check the documentation
+p For more information about the login widget check the documentation 
   a(href="/login-widget") here
   | .
 
-blockquote
-  p Building a JavaScript / Single Page Application? Consider adding
-    code response_type=token
-    |  parameter to the script url or the login link. This is a hint for Auth0 to send the response back as a redirect to your site passing the tokens after the hash sign
-    code https://yoursite#access_token=...&id_token=...
+| <blockquote>
+p Building a JavaScript / Single Page Application? Consider adding
+  code response_type=token
+  |  parameter to the script url or the login link. This is a hint for Auth0 to send the response back as a redirect to your site passing the tokens after the hash sign
+  code https://yoursite#access_token=...&ampid_token=...
+| </blockquote>
 
 script
   $('#widget-chooser').change(function (e) {
