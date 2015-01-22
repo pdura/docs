@@ -501,6 +501,17 @@ div.package span.smaller {
   color: #14204d;
   margin: 0;
 }
+.page-docs section.content blockquote.warning {
+  background: red;
+}
+.page-docs section.content blockquote.warning p {
+  color: white;
+  font-weight: bold;
+}
+.page-docs section.content blockquote.warning a {
+  color: white;
+  text-decoration: underline;
+}
 .page-docs section.content img {
   max-width: 100%;
 }
