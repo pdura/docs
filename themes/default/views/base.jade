@@ -294,10 +294,10 @@ html(lang="en")
         document.cookie = name + '=' + value + '; expires=' + date.toGMTString() + '; path=/; domain=#{env['COOKIE_SCOPE']}';
       }
 
-      setCookie('current_tenant', '#{user.tenant}', 7);
+      setCookie('#{env['CURRENT_TENANT_COOKIE']}', '#{user.tenant}', 7);
 
       setInterval(function () {
-        var current_tenant = getCookie('current_tenant');
+        var current_tenant = getCookie('#{env['CURRENT_TENANT_COOKIE']}');
         if (current_tenant && current_tenant !== '#{user.tenant}') {
           window.location.reload(true);
         }

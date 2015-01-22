@@ -34,6 +34,7 @@ nconf
     'sessionSecret':     'auth11 secret string',
     'COOKIE_SCOPE':      process.env.NODE_ENV === 'production' ? '.auth0.com' : null,
     'COOKIE_NAME':       'auth0l',
+    'CURRENT_TENANT_COOKIE': 'current_tenant',
     'DOMAIN_URL_SERVER': '{tenant}.auth0.com:3000',
     'DOMAIN_URL_APP':    'localhost:8989',
     'DOMAIN_URL_SDK':    'login-dev.auth0.com:3000',
@@ -59,6 +60,10 @@ var middlewares = require('./lib/middlewares');
 
 if (nconf.get('db')) {
   console.log('db is ' + nconf.get('db'));
+}
+
+if (nconf.get('COOKIE_NAME') !== 'auth0l') {
+  nconf.set('CURRENT_TENANT_COOKIE', nconf.get('COOKIE_NAME') + '_current_tenant');
 }
 
 if (!nconf.get('LOGIN_WIDGET_URL')) {
