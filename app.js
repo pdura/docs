@@ -33,6 +33,7 @@ nconf
     'db' :               'mongodb://localhost:27017/auth11',
     'sessionSecret':     'auth11 secret string',
     'COOKIE_SCOPE':      process.env.NODE_ENV === 'production' ? '.auth0.com' : null,
+    'COOKIE_NAME':       'auth0l',
     'DOMAIN_URL_SERVER': '{tenant}.auth0.com:3000',
     'DOMAIN_URL_APP':    'localhost:8989',
     'DOMAIN_URL_SDK':    'login-dev.auth0.com:3000',
@@ -154,7 +155,8 @@ passport.deserializeUser(function(id, done) {
   this.use(express.session({
     secret: nconf.get("sessionSecret"),
     store: require('./lib/sessionStore'),
-    key: "auth0l", cookie: {
+    key: nconf.get('COOKIE_NAME'),
+    cookie: {
       domain:   nconf.get('COOKIE_SCOPE'),
       path:     '/',
       httpOnly: true,
