@@ -30,7 +30,6 @@ nconf
   .env()
   .file({ file: process.env.CONFIG_FILE || path.join(__dirname, "config.json")})
   .defaults({
-    'db' :               'mongodb://localhost:27017/auth11',
     'sessionSecret':     'auth11 secret string',
     'COOKIE_SCOPE':      process.env.NODE_ENV === 'production' ? '.auth0.com' : null,
     'COOKIE_NAME':       'auth0l',
@@ -507,28 +506,11 @@ require('./lib/sitemap')(app);
  * with it
  */
 
-var server;
-
-if (~['production', 'test'].indexOf(process.env.NODE_ENV)) {
-  server = http.createServer(app);
-} else {
-  var options = {
-    key:  fs.readFileSync('./localhost.key'),
-    cert: fs.readFileSync('./localhost.pem')
-  };
-
-  server = https.createServer(options, app)
-                .on('error', function (err) {
-                  if(err.errno === 'EADDRINUSE'){
-                    console.log('error when running http server on port ', port, '\n', err.message);
-                    process.exit(1);
-                  }
-                });
-}
+var server = http.createServer(app);
 
 var port = nconf.get('PORT') || 5050;
 server.listen(port, function () {
-  console.log('Server listening on https://localhost:'  + port);
+  console.log('Server listening on http://localhost:'  + port);
 });
 
 var enableDestroy = require('server-destroy');
