@@ -1,6 +1,7 @@
 var cluster = require('cluster');
 var fs = require('fs');
 var crypto = require('crypto');
+var cwd = process.cwd();
 
 function getSHA1 () {
   return crypto.createHash('sha1')
@@ -16,6 +17,8 @@ console.log('Starting master process with pid ' + process.pid);
 cluster.fork(process.env);
 
 function reload () {
+  process.chdir(cwd);
+
   if (version !== getSHA1()) {
     console.log('master server changed, exiting');
     return process.exit(1);
