@@ -13,7 +13,7 @@ var version = getSHA1();
 console.log('Starting master process with pid ' + process.pid);
 
 //fork the first process
-cluster.fork(process.env);
+cluster.fork();
 
 function reload () {
   if (version !== getSHA1()) {
