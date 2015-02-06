@@ -120,6 +120,14 @@
         ]
       },
       {
+        "title": "Core Concepts",
+        "icon": "icon-question-sign",
+        "items": [
+          { "title": "Applications", "url":"/applications"},
+          { "title": "Rules", "url":"/rules"}
+        ]
+      },
+      {
         "title": "Help Topics",
         "icon": "icon-question-sign",
         "items": [
@@ -128,7 +136,6 @@
           { "title": "Web Apps vs Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
           { "title": "Connector", "url":"/connector"},
-          { "title": "Rules", "url":"/rules"},
           { "title": "Single Sign On (SSO)", "url":"/sso/single-sign-on"},
           { "title": "After Login", "url":"/what-to-do-once-the-user-is-logged-in/index"},
           { "title": "Rules Repository", "url": "https://github.com/auth0/rules" },
