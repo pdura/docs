@@ -233,8 +233,6 @@ var embedded = function (req, res, next) {
 };
 
 var overrideIfAuthenticated = function (req, res, next) {
-  winston.debug('user', req.user);
-
   if (!req.user || !req.user.tenant) {
     return next();
   }
