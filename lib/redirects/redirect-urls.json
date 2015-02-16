@@ -124,4 +124,19 @@
 }, {
   "from": "/adldap-x",
   "to": "/connector/install-other-platforms"
-}]
+}, {
+  "from": "/aspnet-tutorial",
+  "to": "/server-platforms/aspnet"
+}, {
+  "from": "/aspnet-owin-tutorial",
+  "to": "/server-platforms/aspnet-owin"
+}, {
+  "from": "/servicestack-tutorial",
+  "to": "/server-platforms/servicestack"
+}, {
+  "from": "/laravel-tutorial",
+  "to": "/server-platforms/laravel"
+}, {
+  "from": "/symfony-tutorial",
+  "to": "/server-platforms/symfony"
+  }]
