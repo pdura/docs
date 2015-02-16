@@ -9,11 +9,16 @@ Theme.prototype._preRender = function(request, response, next) {
   var settings = this._docsapp.getSettings();
   var sections = response.doc.getSections();
   var title = response.doc.getMeta()['title'] || alternative_title(sections.content);
+  var conanicalUrl = response.doc.getMeta()['canonical'];
+  if (conanicalUrl) {
+    conanicalUrl = nconf.get('DOMAIN_URL_DOCS') + nconf.get('BASE_URL') + conanicalUrl;
+  }
 
   response.locals.site = response.locals.site || {};
   response.locals.site.title = settings['title'] || 'Default';
   response.locals.site.menus = settings['menus'] || {};
   response.locals.title = title;
+  response.locals.canonicalUrl = conanicalUrl;
   response.locals.env = {
     BASE_URL:             nconf.get('BASE_URL'),
     AUTH0_DOMAIN:         nconf.get('AUTH0_DOMAIN'),
